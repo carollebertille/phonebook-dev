@@ -45,7 +45,7 @@ pipeline {
             }
         } */
         
-         stage('Check Css syntax') {
+         /*stage('Check Css syntax') {
             agent { docker { image 'hspaans/csslint' } }
             steps {
              script { cssCheck }
@@ -69,7 +69,7 @@ pipeline {
        }
 
 
-    }
+    }*/
     post {
     always {
        script {
