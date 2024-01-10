@@ -33,9 +33,13 @@ pipeline {
         }
    
        stage('Check NodeJs syntax') {
-            agent { docker { image 'node:latest' } }
+            agent { 
+                docker { 
+                    image 'node:latest'
+                    args '-u root:root'
+                } 
+            }
             steps {
-                sudo chown -R 115:122 "/.npm"
                 sh 'npm install -g jshint'
                 sh 'npm install --save-dev jshint'
                 sh 'jshint  \${WORKSPACE}/battleboat/js/battleboat.js'
