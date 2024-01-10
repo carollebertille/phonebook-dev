@@ -7,7 +7,7 @@ pipeline {
        stage('Check Syntax - Dockerfile'){
           steps{
              script {
-                 script { DockerfileCheck }
+                 script { dockerfileCheck }
                    
                }
             }
