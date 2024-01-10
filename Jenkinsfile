@@ -16,13 +16,13 @@ pipeline {
             }
           }
 
-      /* stage('Check Python  syntax') {
+       stage('Check Python  syntax') {
            agent any
             steps {
              script { pythonCheck }
             }
         }
-       stage('Check Sql syntax') {
+       /*stage('Check Sql syntax') {
            agent any
             steps {
              script { sqlCheck }
