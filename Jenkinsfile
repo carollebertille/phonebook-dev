@@ -4,18 +4,17 @@
 pipeline {
     agent none
     stages {
-        stage('Check Dockerfile syntax') {
-           steps{
-             
+       stage('Check Syntax - Dockerfile'){
+          steps{
+             script {
                     sh '''
                     
                        docker run -v ${WORKSPACE}:${WORKSPACE}/project hadolint/hadolint hadolint ${WORKSPACE}/project/Dockerfile-app
-                       docker run -v ${WORKSPACE}:${WORKSPACE}/project hadolint/hadolint hadolint ${WORKSPACE}/project/Dockerfile-mysql
                            
                     '''
-               
+               }
             }
-        }
+          }
 
        stage('Check Python  syntax') {
            agent any
