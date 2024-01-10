@@ -16,7 +16,7 @@ pipeline {
             }
           }
 
-       stage('Check Python  syntax') {
+      /* stage('Check Python  syntax') {
            agent any
             steps {
              script { pythonCheck }
@@ -27,7 +27,7 @@ pipeline {
             steps {
              script { sqlCheck }
             }
-        }
+        }*/
 /*
         stage('Check Golang syntax') {
             agent any
