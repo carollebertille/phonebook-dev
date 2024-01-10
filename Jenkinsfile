@@ -66,10 +66,10 @@ pipeline {
                  sh "${scannerHome}/bin/sonar-scanner"
             }
           }
-       }
+       }*/
 
 
-    }*/
+    }
     post {
     always {
        script {
