@@ -46,16 +46,16 @@ pipeline {
             }
         } 
         
-         stage('Check Css syntax') {
+       /*  stage('Check Css syntax') {
             agent { docker { image 'hspaans/csslint' } }
             steps {
              script { cssCheck }
             }
-        } 
-        /*stage('SonarQube analysis') {
+        } */
+        stage('SonarQube analysis') {
              agent {
                  docker {
-                 image 'sonarsource/sonar-scanner-cli:4.7.0'
+                 image 'sonarsource/sonar-scanner-cli:4.8'
                }
              }
                 environment {
@@ -67,8 +67,13 @@ pipeline {
                  sh "${scannerHome}/bin/sonar-scanner"
             }
           }
-       }*/
-
+       }
+       stage("Quality Gate") {
+            steps {
+                timeout(time: 1, unit: 'HOURS') {
+                waitForQualityGate abortPipeline: true }
+            }
+        }
 
     }
     post {
