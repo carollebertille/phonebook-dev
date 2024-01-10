@@ -53,11 +53,11 @@ pipeline {
                }
              }
                 environment {
-     CI = 'true'
-         scannerHome='/opt/sonar-scanner'
+           CI = 'true'
+           scannerHome='/opt/sonar-scanner'
     }
           steps{
-               withSonarQubeEnv('Sonar') {
+               withSonarQubeEnv('Sonarqube') {
                  sh "${scannerHome}/bin/sonar-scanner"
             }
           }
@@ -70,7 +70,7 @@ pipeline {
        script {
          /* Use slackNotifier.groovy from shared library and provide current build result as parameter */
          clean
-         slackNotifier_dev  currentBuild.result
+         slackNotifier currentBuild.result
      }
     }
     }
