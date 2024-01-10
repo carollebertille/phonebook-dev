@@ -22,12 +22,12 @@ pipeline {
              script { pythonCheck }
             }
         }
-       /*stage('Check Sql syntax') {
+       stage('Check Sql syntax') {
            agent any
             steps {
              script { sqlCheck }
             }
-        }*/
+        }
 /*
         stage('Check Golang syntax') {
             agent any
