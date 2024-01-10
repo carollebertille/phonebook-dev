@@ -2,7 +2,7 @@
 @Library('jenkins-shared-library')_
 
 pipeline {
-    agent none
+    agent any
     stages {
        stage('Check Syntax - Dockerfile'){
           steps{
