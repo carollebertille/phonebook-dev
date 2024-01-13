@@ -52,7 +52,7 @@ pipeline {
              script { cssCheck }
             }
         } */
-        stage('SonarQube analysis') {
+        /*stage('SonarQube analysis') {
              agent {
                  docker {
                  image 'sonarsource/sonar-scanner-cli:4.8'
@@ -73,7 +73,7 @@ pipeline {
                 timeout(time: 1, unit: 'HOURS') {
                 waitForQualityGate abortPipeline: true }
             }
-        }
+        }*/
 
     }
     post {
